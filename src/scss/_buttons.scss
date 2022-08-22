@@ -1,0 +1,60 @@
+:root {
+	--clr-background: hsl(350 75% 50%);
+	--clr-border: hsl(350 75% 50%);
+	--clr-text: hsl(0 0% 100%);
+	--btn-radius: 0.35em;
+
+	// Make sure contrast ratio still meet AA requirements.
+	@media (prefers-color-scheme: dark) {
+		--clr-background: hsl(350 75% 58%);
+		--clr-border: hsl(350 75% 58%);
+		--clr-text: hsl(0 0% 0%);
+	}
+}
+
+%button {
+	cursor: pointer;
+	display: inline-flex;
+	gap: 1em;
+	background: var(--clr-background);
+	color: var(--clr-text);
+	border-radius: var(--btn-radius);
+	padding: 0.375em 2em;
+	border: 2px solid var(--clr-border);
+	transition: opacity 0.25s ease-in-out;
+
+	&:hover {
+		opacity: 0.5;
+	}
+
+	&.is-blue {
+		--clr-background: hsl(210 75% 46%);
+		--clr-border: hsl(210 75% 46%);
+
+		// Make sure contrast ratio still meet AA requirements.
+		@media (prefers-color-scheme: dark) {
+			--clr-background: hsl(210 75% 50%);
+			--clr-border: hsl(210 75% 50%);
+		}
+	}
+
+	&.is-hollow {
+		--clr-background: none;
+		--clr-text: var(--clr-border);
+		transition:
+			background-color 0.25s ease-in-out,
+			color 0.25s ease-in-out;
+
+		&:hover {
+			opacity: 1;
+			--clr-background: var(--clr-border);
+			--clr-text: inherit;
+		}
+	}
+}
+
+a.button,
+input,
+button {
+	@extend %button;
+}

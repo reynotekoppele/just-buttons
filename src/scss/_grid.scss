@@ -1,0 +1,16 @@
+.grid {
+	display: grid;
+	place-items: center;
+	gap: var(--gap, 1rem);
+	grid-template-columns: repeat(var(--cols, 1), 1fr);
+
+
+	&--overview {
+		--gap: 3rem;
+	}
+
+	&--buttons {
+		--cols: 3;
+		--gap: 1rem;
+	}
+}

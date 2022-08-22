@@ -1,0 +1,13 @@
+{
+  "name": "just-buttons",
+  "version": "0.0.1",
+  "author": "Reyno te Koppele",
+  "scripts": {
+    "start": "sass --watch src/scss/style.scss build/style.css"
+  },
+  "devDependencies": {
+    "@wordpress/eslint-plugin": "^12.9.0",
+    "eslint": "^8.22.0",
+    "sass": "^1.54.5"
+  }
+}
