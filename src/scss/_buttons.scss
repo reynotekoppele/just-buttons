@@ -21,35 +21,46 @@
 	border-radius: var(--btn-radius);
 	padding: 0.375em 2em;
 	border: 2px solid var(--clr-border);
-	transition: opacity 0.25s ease-in-out;
+	transition:
+		background-color 0.25s ease-in-out,
+		color 0.25s ease-in-out;
 
+	&:focus-visible {
+		outline: 2px solid var(--clr-background);
+		outline-offset: .25em;
+	}
+
+	&:focus-within:not(:focus-visible),
 	&:hover {
-		opacity: 0.5;
-	}
-
-	&.is-blue {
-		--clr-background: hsl(210 75% 46%);
-		--clr-border: hsl(210 75% 46%);
-
-		// Make sure contrast ratio still meet AA requirements.
-		@media (prefers-color-scheme: dark) {
-			--clr-background: hsl(210 75% 50%);
-			--clr-border: hsl(210 75% 50%);
-		}
-	}
-
-	&.is-hollow {
 		--clr-background: none;
 		--clr-text: var(--clr-border);
-		transition:
-			background-color 0.25s ease-in-out,
-			color 0.25s ease-in-out;
+	}
+}
 
-		&:hover {
-			opacity: 1;
-			--clr-background: var(--clr-border);
-			--clr-text: inherit;
-		}
+.is-blue {
+	--clr-background: hsl(210 75% 46%);
+	--clr-border: hsl(210 75% 46%);
+
+	// Make sure contrast ratio still meet AA requirements.
+	@media (prefers-color-scheme: dark) {
+		--clr-background: hsl(210 75% 50%);
+		--clr-border: hsl(210 75% 50%);
+	}
+}
+
+.is-hollow {
+	--clr-background: none;
+	--clr-text: var(--clr-border);
+
+	&:focus-visible {
+		outline: 2px solid var(--clr-border);
+	}
+
+	&:focus-within:not(:focus-visible),
+	&:hover {
+		opacity: 1;
+		--clr-background: var(--clr-border);
+		--clr-text: inherit;
 	}
 }
 
